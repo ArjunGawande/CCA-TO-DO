@@ -19,11 +19,10 @@ const signup = async (req, res) => {
 
         const token = generateToken(user.id);
 
-        // Set token in HTTP-only cookie
         res.cookie('token', token, {
-            httpOnly: false, // Prevents client-side JavaScript from accessing the cookie
-            secure: process.env.NODE_ENV === 'production', // Ensures cookies are sent over HTTPS in production
-            maxAge: 24 * 60 * 60 * 1000, // 1 day in milliseconds
+            httpOnly: false,
+            secure: process.env.NODE_ENV === 'production', 
+            maxAge: 24 * 60 * 60 * 1000,
         });
 
         res.status(201).json({ message: 'Signup successful' });
@@ -43,11 +42,10 @@ const login = async (req, res) => {
 
         const token = generateToken(user.id);
 
-        // Set token in HTTP-only cookie
         res.cookie('token', token, {
-            httpOnly: false, // Prevents client-side JavaScript from accessing the cookie
-            secure: process.env.NODE_ENV === 'production', // Ensures cookies are sent over HTTPS in production
-            maxAge: 24 * 60 * 60 * 1000, // 1 day in milliseconds
+            httpOnly: false, 
+            secure: process.env.NODE_ENV === 'production',
+            maxAge: 24 * 60 * 60 * 1000, 
         });
         console.log(token); 
         res.json({ message: 'Login successful' });

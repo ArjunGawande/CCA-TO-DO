@@ -1,1 +1,1 @@
-do namaste I express core in docker then run
+do npm I express core in docker then run
